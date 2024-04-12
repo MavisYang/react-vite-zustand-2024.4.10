@@ -1,0 +1,29 @@
+.m-layout-container {
+    width: 100vw;
+    height: 100vh;
+
+    .header-left {
+    }
+
+    .header-right {
+    }
+}
+
+.m-layout-header {
+    // height: 60px;
+    // background-color: #04336b;
+    // color: #fff;
+    padding: 0 32px;
+}
+
+.m-layout-content {
+    color: --ant-blue;
+}
+
+.m-layout-sider {
+    // background-color: #fff;
+    // box-shadow: @shadow-1-left;
+}
+
+.m-layout-main {
+}
