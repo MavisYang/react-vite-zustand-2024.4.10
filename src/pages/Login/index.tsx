@@ -2,7 +2,7 @@
  * @Author: yangmiaomiao
  * @Date: 2024-04-12 11:16:57
  * @LastEditors: yangmiaomiao
- * @LastEditTime: 2024-04-12 17:33:58
+ * @LastEditTime: 2024-04-13 10:14:31
  * @Description:
  */
 import React, { useState } from 'react'
@@ -32,35 +32,24 @@ const Login: React.FC = () => {
     const [messageApi, contextHolder] = message.useMessage()
 
     const handleSubmit = async (values: any) => {
-        setUserInfo(values)
-        messageApi
-            .success({
-                key: 'loginSuccess',
-                content: '登录成功',
-                duration: 0.8,
-            })
-            .then(() => {
-                navigate('/', { replace: true })
-                // 指定 replace: true 会导致导航替换历史堆栈中的当前条目，而不是添加新条目。
-            })
-        // return await delay(1000).then(() => {
-        //     setUserInfo(values)
-        //     // navigate('/', { replace: true })
-        //     // message.success('登录成功🎉🎉🎉')
-        //     // 直接用这个方法是报错
+        return await delay(300).then(() => {
+            setUserInfo(values)
+            // navigate('/', { replace: true })
+            // message.success('登录成功🎉🎉🎉')
+            // 直接用这个方法是报错
 
-        //     // 这种方式跳转太慢了
-        //     messageApi
-        //         .success({
-        //             key: 'loginSuccess',
-        //             content: '登录成功',
-        //             duration: 0.8,
-        //         })
-        //         .then(() => {
-        //             navigate('/', { replace: true })
-        //             // 指定 replace: true 会导致导航替换历史堆栈中的当前条目，而不是添加新条目。
-        //         })
-        // })
+            // 这种方式跳转会有些慢
+            messageApi
+                .success({
+                    key: 'loginSuccess',
+                    content: '登录成功',
+                    duration: 0.8,
+                })
+                .then(() => {
+                    navigate('/', { replace: true })
+                    // 指定 replace: true 会导致导航替换历史堆栈中的当前条目，而不是添加新条目。
+                })
+        })
     }
 
     const tabPane: TabsProps['items'] = [
@@ -69,6 +58,7 @@ const Login: React.FC = () => {
     ]
 
     return (
+        // 必须要用ProConfigProvider包裹，不然退出后button按钮样式没了
         <ProConfigProvider hashed={false}>
             <div
                 style={{

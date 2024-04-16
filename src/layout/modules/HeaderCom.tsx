@@ -2,15 +2,19 @@
  * @Author: yangmiaomiao
  * @Date: 2024-04-11 11:52:26
  * @LastEditors: yangmiaomiao
- * @LastEditTime: 2024-04-12 16:23:37
+ * @LastEditTime: 2024-04-15 20:04:52
  * @Description:
  */
 import React from 'react'
 import { UserOutlined } from '@ant-design/icons'
-import { Avatar, Space, Flex, Dropdown } from 'antd'
+import { Layout, Avatar, Space, Flex, Dropdown } from 'antd'
 import type { MenuProps } from 'antd'
+import MenuCollapsed from '../components/MenuCollapsed'
+
 import { useNavigate } from 'react-router-dom'
 import { useLoginStore } from '@stores/index'
+
+const { Header } = Layout
 
 const HeaderCom: React.FC = () => {
     const { userInfo, setUserInfo } = useLoginStore()
@@ -38,18 +42,21 @@ const HeaderCom: React.FC = () => {
     ]
 
     return (
-        <Flex justify='space-between' align='center'>
-            <Space size='middle'>
-                <img className='log' src='/logo192.png' alt='' />
-                <span className='title'>React+Vite+TS</span>
-            </Space>
-            <Space size={16}>
-                <Dropdown menu={{ items }} arrow>
-                    <Avatar size={40} icon={<UserOutlined />} style={{ cursor: 'pointer' }} />
-                </Dropdown>
-                <span className='user'>{userInfo?.username || 'root'}</span>
-            </Space>
-        </Flex>
+        <Header className='m-layout-header'>
+            <Flex justify='space-between' align='center' style={{ height: '100%' }}>
+                <Space size='middle'>
+                    <img className='log' src='/logo192.png' alt='' />
+                    <span className='title'>React+Vite+TS</span>
+                    <MenuCollapsed />
+                </Space>
+                <Space size={16}>
+                    <Dropdown menu={{ items }} arrow>
+                        <Avatar style={{ cursor: 'pointer' }} size={40} icon={<UserOutlined />} />
+                    </Dropdown>
+                    <span className='user'>{userInfo?.username || 'root'}</span>
+                </Space>
+            </Flex>
+        </Header>
     )
 }
 

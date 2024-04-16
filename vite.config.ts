@@ -2,7 +2,7 @@
  * @Author: yangmiaomiao
  * @Date: 2024-04-09 20:07:30
  * @LastEditors: yangmiaomiao
- * @LastEditTime: 2024-04-11 15:22:53
+ * @LastEditTime: 2024-04-13 15:21:43
  * @Description:
  */
 import { defineConfig } from 'vite'
@@ -26,7 +26,7 @@ export default defineConfig({
     resolve: {
         // 配置路径别名
         alias: {
-            // '@': resolve(__dirname, './src'), // 设置别名
+            '@': resolve(__dirname, '/src'), // 设置别名
             '@pages': resolve(__dirname, 'src', 'pages'),
             '@components': resolve(__dirname, 'src', 'components'),
             '@stores': resolve(__dirname, 'src', 'stores'),

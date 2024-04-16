@@ -22,8 +22,8 @@
         "baseUrl": "./src",
         "paths": {
             // 根据别名配置相关路径
-            // "@": ["src"],
-            // "@/*": ["src/*"],
+            "@": ["src"],
+            "@/*": ["src/*"],
             "@pages/*": ["pages/*"],
             "@components/*": ["components/*"],
             "@stores/*": ["stores/*"],

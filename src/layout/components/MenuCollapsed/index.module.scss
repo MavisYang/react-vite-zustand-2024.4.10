@@ -1,0 +1,12 @@
+.menuCollapsed {
+    cursor: pointer;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .collapsedIcon {
+        font-size: 20px;
+    }
+}

@@ -1,12 +1,6 @@
 .m-layout-container {
     width: 100vw;
     height: 100vh;
-
-    .header-left {
-    }
-
-    .header-right {
-    }
 }
 
 .m-layout-header {
@@ -18,11 +12,21 @@
         font-size: 20px;
     }
 }
+.m-layout-sider {
+    .ant-layout-sider-children {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
 
-.m-layout-content {
+    .sider-menus {
+        flex: auto;
+        width: 100%;
+        overflow: auto;
+    }
 }
 
-.m-layout-sider {
+.m-layout-content {
 }
 
 .m-layout-main {

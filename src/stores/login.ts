@@ -2,7 +2,7 @@
  * @Author: yangmiaomiao
  * @Date: 2024-04-10 14:04:08
  * @LastEditors: yangmiaomiao
- * @LastEditTime: 2024-04-12 11:05:23
+ * @LastEditTime: 2024-04-15 19:44:07
  * @Description:
  */
 
@@ -10,17 +10,19 @@ import { create } from 'zustand'
 import { persist, createJSONStorage } from 'zustand/middleware' //持久化中间件
 
 type Info = Record<string, any> | null
+type Token = string | null
 interface LoginState {
     userInfo: Info
-    token: string | null
+    token: Token
     setUserInfo: (info: Info) => void
 }
 const useLoginStore = create<LoginState>()(
     persist(
-        (set, get) => ({
+        (set) => ({
             userInfo: null,
-            token: null,
             setUserInfo: (info) => set({ userInfo: info }),
+            token: null,
+            setToken: (token: Token) => set(() => ({ token: token })),
         }),
         {
             name: 'userInfo', // 唯一键
