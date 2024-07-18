@@ -2,7 +2,7 @@
  * @Author: yangmiaomiao
  * @Date: 2024-04-12 11:16:57
  * @LastEditors: yangmiaomiao
- * @LastEditTime: 2024-04-13 10:14:31
+ * @LastEditTime: 2024-06-26 16:07:35
  * @Description:
  */
 import React, { useState } from 'react'
@@ -17,7 +17,7 @@ import {
 } from '@ant-design/pro-components'
 import { message, Tabs, Button } from 'antd'
 import type { TabsProps } from 'antd'
-import { useLoginStore } from '@stores/index'
+import { useUserStore } from '@stores/index'
 import './index.scss'
 
 type LoginType = 'phone' | 'account'
@@ -27,28 +27,34 @@ function delay(ms: number) {
 
 const Login: React.FC = () => {
     const [loginType, setLoginType] = useState<LoginType>('account')
-    const { setUserInfo } = useLoginStore()
+    const { setUserInfo, setToken } = useUserStore()
     const navigate = useNavigate() //路由跳转
     const [messageApi, contextHolder] = message.useMessage()
 
+    // 获取用户信息
+    //获取token
+
     const handleSubmit = async (values: any) => {
         return await delay(300).then(() => {
+            console.log(values, 'values')
+
             setUserInfo(values)
-            // navigate('/', { replace: true })
+            setToken('token')
+            navigate('/', { replace: true })
             // message.success('登录成功🎉🎉🎉')
             // 直接用这个方法是报错
 
             // 这种方式跳转会有些慢
-            messageApi
-                .success({
-                    key: 'loginSuccess',
-                    content: '登录成功',
-                    duration: 0.8,
-                })
-                .then(() => {
-                    navigate('/', { replace: true })
-                    // 指定 replace: true 会导致导航替换历史堆栈中的当前条目，而不是添加新条目。
-                })
+            // messageApi
+            //     .success({
+            //         key: 'loginSuccess',
+            //         content: '登录成功',
+            //         duration: 0.8,
+            //     })
+            //     .then(() => {
+            //         navigate('/', { replace: true })
+            //         // 指定 replace: true 会导致导航替换历史堆栈中的当前条目，而不是添加新条目。
+            //     })
         })
     }
 

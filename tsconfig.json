@@ -1,24 +1,28 @@
 {
     "compilerOptions": {
-        "target": "ES2022", // 指定 ECMAScript 版本
+        "composite": true,
+        "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+        "target": "ES2020",
         "useDefineForClassFields": true,
-        "lib": ["ES2022", "DOM", "DOM.Iterable"], // 要包含在编译中的依赖库文件列表
-        "module": "ESNext", // 指定模块代码生成
-        "skipLibCheck": true, // 跳过所有声明文件的类型检查
-        "allowJs": true,
-        "moduleResolution": "Node",
+        "lib": ["ES2020", "DOM", "DOM.Iterable"],
+        "module": "ESNext",
+        "skipLibCheck": true,
+
+        /* Bundler mode */
+        "moduleResolution": "bundler",
         "allowImportingTsExtensions": true,
         "resolveJsonModule": true,
         "isolatedModules": true,
+        "moduleDetection": "force",
         "noEmit": true,
-        "strict": true, // 启用所有严格类型检查选项
-        "noUnusedLocals": true, // 报告未使用的本地变量的错误
-        "noUnusedParameters": true, // 报告未使用参数的错误
-        "jsx": "react-jsx", // 在.tsx文件中支持JSX
+        "jsx": "react-jsx",
+
+        /* Linting */
+        "strict": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
         "noFallthroughCasesInSwitch": true,
-        "esModuleInterop": true,
-        "allowSyntheticDefaultImports": true,
-        "forceConsistentCasingInFileNames": true,
+
         "baseUrl": "./src",
         "paths": {
             // 根据别名配置相关路径
@@ -27,11 +31,12 @@
             "@pages/*": ["pages/*"],
             "@components/*": ["components/*"],
             "@stores/*": ["stores/*"],
-            "@services/*": ["services/*"],
-            "@utils/*": ["utils/*"]
+            "@utils/*": ["utils/*"],
+            "@api/*": ["api/*"],
+            "@assets/*": ["assets/*"],
+            "@hooks/*": ["hooks/*"],
+            "@router/*": ["router/*"]
         }
     },
-    "include": ["src"], // *** TypeScript文件应该进行类型检查 ***
-    "exclude": ["node_modules", "build"], // *** 不进行类型检查的文件 ***
-    "references": [{ "path": "./tsconfig.node.json" }]
+    "include": ["src"]
 }

@@ -2,7 +2,7 @@
  * @Author: yangmiaomiao
  * @Date: 2024-04-10 14:04:08
  * @LastEditors: yangmiaomiao
- * @LastEditTime: 2024-04-15 19:44:07
+ * @LastEditTime: 2024-06-26 11:43:29
  * @Description:
  */
 
@@ -15,8 +15,9 @@ interface LoginState {
     userInfo: Info
     token: Token
     setUserInfo: (info: Info) => void
+    setToken: (token: Token) => void
 }
-const useLoginStore = create<LoginState>()(
+const useUserStore = create<LoginState>()(
     persist(
         (set) => ({
             userInfo: null,
@@ -26,7 +27,7 @@ const useLoginStore = create<LoginState>()(
         }),
         {
             name: 'userInfo', // 唯一键
-            storage: createJSONStorage(() => sessionStorage), // (可选)默认使用'localStorage'
+            storage: createJSONStorage(() => localStorage), // (可选)默认使用'localStorage'
 
             // //过滤属性，存储某些字段到Storage You could omit multiple fields using the following
             // partialize: (state) => Object.fromEntries(Object.entries(state).filter(([key]) => key !== 'userInfo')), //userInfo字段不被存储，其他字段被存储
@@ -36,4 +37,4 @@ const useLoginStore = create<LoginState>()(
     ),
 )
 
-export default useLoginStore
+export default useUserStore

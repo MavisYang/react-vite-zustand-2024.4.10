@@ -1,0 +1,30 @@
+{
+	"path": "/demo",
+	"name": "demo",
+	"redirect": "/demo/guide",
+	"meta": {
+		"icon": "Briefcase",
+		"title": "demo",
+		"isLink": "",
+		"isHide": false,
+		"isFull": false,
+		"isAffix": false,
+		"isKeepAlive": true
+	},
+	"children": [
+		{
+			"path": "/demo/selectIcon",
+			"name": "selectIcon",
+			"component": "/demo/selectIcon/index",
+			"meta": {
+				"icon": "Menu",
+				"title": "图标选择器",
+				"isLink": "",
+				"isHide": false,
+				"isFull": false,
+				"isAffix": false,
+				"isKeepAlive": true
+			}
+		}
+	]
+}

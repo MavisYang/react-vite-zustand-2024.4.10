@@ -2,22 +2,26 @@
  * @Author: yangmiaomiao
  * @Date: 2024-04-11 11:22:08
  * @LastEditors: yangmiaomiao
- * @LastEditTime: 2024-04-16 09:55:11
- * @Description:
+ * @LastEditTime: 2024-06-21 15:09:39
+ * @Description: 静态路由
  */
 import { lazy } from 'react'
 import { createBrowserRouter, Navigate } from 'react-router-dom'
-import { HomeOutlined, LayoutOutlined, UserOutlined } from '@ant-design/icons'
+import { HomeOutlined, LayoutOutlined, UserOutlined, ProfileOutlined } from '@ant-design/icons'
 import App from '../App'
 import ErrorPage from '@components/ErrorPage'
-const Login = lazy(() => import('@pages/Login/index'))
 
+const Login = lazy(() => import('@pages/Login/index'))
 const Home = lazy(() => import('@pages/Home'))
 const About = lazy(() => import('@pages/About'))
+const TablePage = lazy(() => import('@pages/TablePage'))
 
 export function authLoader() {
     return { isAdmin: true }
 }
+
+console.log('routes')
+
 const routes = [
     {
         path: '/',
@@ -38,6 +42,12 @@ const routes = [
                         name: '关于',
                         icon: <LayoutOutlined />,
                         element: <About />,
+                    },
+                    {
+                        path: 'table',
+                        name: '列表',
+                        icon: <ProfileOutlined />,
+                        element: <TablePage />,
                     },
                     {
                         path: 'child',
@@ -63,10 +73,10 @@ const routes = [
         path: '/login',
         element: <Login />,
     },
-    // {
-    //     path: '/404',
-    //     element: <ErrorPage />,
-    // },
+    {
+        path: '/404',
+        element: <ErrorPage />,
+    },
 ]
 export { routes }
 

@@ -1,0 +1,27 @@
+{
+    "code": "000000",
+    "message": "操作成功",
+    "data": [
+        {
+            "path": "/home",
+            "name": "首页",
+            "component": "/Home/index",
+            "id": 1,
+            "icon": "HomeOutlined"
+        },
+        {
+            "path": "/about",
+            "name": "关于",
+            "component": "/About/index",
+            "id": 22,
+            "icon": "LayoutOutlined"
+        },
+        {
+            "path": "/table",
+            "name": "列表",
+            "component": "/TablePage/index",
+            "id": 2,
+            "icon": "ProfileOutlined"
+        }
+    ]
+}

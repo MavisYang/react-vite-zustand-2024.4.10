@@ -2,7 +2,7 @@
  * @Author: yangmiaomiao
  * @Date: 2024-04-10 09:38:52
  * @LastEditors: yangmiaomiao
- * @LastEditTime: 2024-04-16 09:56:58
+ * @LastEditTime: 2024-06-24 16:14:05
  * @Description:
  */
 
@@ -21,6 +21,9 @@ const Home: React.FC = () => {
             <IconFont type='icon-right-circle' />
             <Icon component={HomeOutlined as React.ForwardRefExoticComponent<any>} />
             <Button>Button</Button>
+            <svg>
+                <use xlink:href='#smile-o' />
+            </svg>
         </div>
     )
 }
